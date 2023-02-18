@@ -14,8 +14,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url(Images/bg_img.png);
-	background-repeat: no-repeat;
+	background-image: url(/Images/bg_img.png);
 	filter: blur(5px);
 	-webkit-filter: blur(5px);
 	z-index: -1;
@@ -132,6 +131,3 @@ input:focus::-webkit-input-placeholder{
 	transition: background-image 1s ease-in-out;
   }
  
-  @media only screen and (max-width: 600px) {
-	
-  }
