@@ -16,6 +16,7 @@
 	height: 100%;
 	background-image: url(Images/bg-img.png);
 	background-repeat: no-repeat;
+	background-size: cover;
 	filter: blur(5px);
 	-webkit-filter: blur(5px);
 	z-index: -1;
@@ -88,17 +89,18 @@
 	border-radius: 12px;
 	width: 50%;
 	border: 2px solid purple;
-	
+	color: black;
 	
 }
 .search_container input:focus{
 	outline: none;
 	background: white;
 	transition: 400ms;
+	color: black;
 	
 }
 input::placeholder{
-	color: white;
+	color: white
   }
 input:focus::-webkit-input-placeholder{
 	color: black;
