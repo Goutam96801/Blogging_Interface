@@ -109,7 +109,7 @@ input:focus::-webkit-input-placeholder{
 .search_container button{
 	background:rgb(60, 4, 60);
 	color: white;
-	padding: 8px;
+	padding: 8px; 
 	border-radius: 12px;
 	cursor: pointer;
 }
