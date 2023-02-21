@@ -14,7 +14,11 @@
 	left: 0;
 	width: 100%;
 	height: 200%;
+<<<<<<< HEAD
 	background-image: url(/Images/bg-img.png);
+=======
+	background-image: url(./Images/bg-img.png);
+>>>>>>> 4a5b0bcb32c2ea182baccf43cfc35a83a9320878
 	background-repeat: no-repeat;
 	background-size:cover;
 	filter: blur(5px);
