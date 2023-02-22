@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Signup Page</title>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="/CSS/signup-page.css">
   </head>
   <body>
-    <div class="signup-page">
-      <div class="form">
+    
         <form class="signup-form">
-          <input type="text" placeholder="username"/>
-          <input type="password" placeholder="password"/>
-          <input type="password" placeholder="confirm password"/>
-          <input type="email" placeholder="email address"/>
-          <button>signup</button>
-          <p class="message">Already have an account? <a href="/login-page.html">Sign In</a></p>
-        </form>
-      </div>
-    </div>
+          <div class="form-title">
+             <div class="user-icon bg">
+                <i class="fa fa-user"></i>
+             </div>
+             <h2></h2>
+          </div>
+          <label for="username"><i class="username"></i>Username:</label>
+          <input type="text" id="username" name="username" required placeholder="Enter your username">
+          <label for="email"><i class="email"></i> Email:</label>
+          <input type="email" id="email" class="input email" required placeholder="Enter your email adress">
+          <label for="pass"><i class="fa fa-lock"></i> Password:</label>
+          <input id="pass" type="password" class="input password" required minlength="8" placeholder="Enter your password">
+          <button type="submit" class="btn-signup bg">Sign up</button>
+    
+</html>
+       </form>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <script src="#"></script>
   </body>
 </html>
