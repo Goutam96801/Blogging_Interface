@@ -13,22 +13,23 @@
 <body>
 	<header>
 		<section class="header_section">
-			<div class="header_bg"></div>
 				<nav class="navbar">
-					<div class="logo_icon">
-						<img src="Images/logo-no-background.png" alt="logo"  />
-	
-					</div>
+					<a href="index.html" class="logo_icon"><img src="Images/logo.png"</a>
 					<div class="left_navbar">
-						<div class="menu_icon"><i class="fa-regular fa-square-caret-down fa-2x"></i></div>
-						<a class="link home" href="#">Home</a>
-						<a class="link about" href="#">About</a>
-						<a class="link message" href="#">Message </a>
+						<input type="checkbox" id="toggler" />
+						<label for="toggler"><i class="fa-solid fa-bars"></i></label>
+						<div class="menu">
+							<ul class="list">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">About</a></li>
+								<li><a href="#">Message</a></li>
+							</ul>
+						</div>
 					</div>
 					<div class="right_navbar">
 						<div class="user_icon"><i class="fa-solid fa-user fa-2x"></i></div>
 						<a class="login_button" href="login-page.html">Log In</a>
-						<a class="Join_button" href="signup-page.html">Join</a>
+						<a class="join_button" href="signup-page.html">Join</a>
 					</div>
 	
 				</nav>
@@ -36,17 +37,18 @@
 						<input type="text" placeholder="Search an article"/>
 						<button>Search</button>
 					</div>
+					<div class="main_bg"></div>
+			<div class="main_section_container">
+				<h1>Brain simply creates mess</h1>
+				<p>Start by expressing your heart in words</p>
+				<a href="blog_post.html">CREATE YOUR BLOG</a>
+			</div>
 			
 		</section>
 	</header>
 	<main>
-		<section class="main_section">
-			<div class="main_bg"></div>
-			<div class="main_section_container">
-				<h1>Publish your passions, your way</h1>
-				<p>Create a unique and beautiful blog easily.</p>
-				<a href="blog_post.html">CREATE YOUR BLOG</a>
-			</div>
+		<section class="body-section">
+			<div>This is Second page</div>
 		</section>
 		
 	</main>
