@@ -5,7 +5,7 @@ body{
 }
 .signup-form{
   max-width: 400px;
-  min-height: 400px;
+  min-height: 550px;
   box-sizing: border-box;
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 4px 2px 16px rgba(0, 0, 0, 0.4);
@@ -14,7 +14,7 @@ body{
   padding: 25px;
   color: #414141;
   position: relative;
-  transform: translate(0, 30%);
+  transform: translate(0, 10%);
       
 }
 input{
@@ -79,4 +79,27 @@ input:invalid{
   border-radius: 45px;
   top: -60px;
   left: -45px;
+}
+.already-registered {
+  display: block;
+  text-align: center;
+  margin: 14px auto;
+}
+.already-registered a{
+  text-decoration: none;
+}
+.cross-icon{
+  position: absolute;
+  font-size: 28px;
+  color:black;
+  opacity: 50%;
+  text-align: center;
+  top: -25px;
+  left: 352px;
+  background:transparent;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.cross-icon:hover{
+  color: red;
 }

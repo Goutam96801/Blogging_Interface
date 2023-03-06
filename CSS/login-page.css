@@ -4,8 +4,8 @@ body{
   background-size: cover;
 }
 .login-form{
-  max-width: 500px;
-  min-height: 500px;
+  max-width: 400px;
+  min-height: 300px;
   box-sizing: border-box;
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 4px 2px 16px rgba(0, 0, 0, 0.4);
@@ -29,14 +29,22 @@ body{
   
   
 }
+.fp_link{
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 14px auto;
+  text-decoration-color: #414141;
+  font-size: 14px;
+  text-align: center;
+}
 .input:focus{
   outline: 0;
   border-color: #f9cb81;
   
-}
+} 
 .input:invalid{
   border-color: #ff0000;
-  
 }
 .btn-login{
   display: block;
@@ -82,11 +90,30 @@ body{
   text-align: center;
   border-radius: 45px;
   top: -60px;
-  left: -45px;
+  left: -45px; 
+  
 }
-.below-login-btn{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
+.not-a-member {
+  display: block;
+  text-align: center;
+  margin: 14px auto;
+}
+.not-a-member a{
+  text-decoration: none;
+}
+
+.cross-icon{
+  position: absolute;
+  font-size: 28px;
+  color:black;
+  opacity: 50%;
+  text-align: center;
+  top: -25px;
+  left: 352px;
+  background:transparent;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.cross-icon:hover{
+  color: red;
 }
