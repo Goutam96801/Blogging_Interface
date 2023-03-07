@@ -291,6 +291,7 @@ input:focus::-webkit-input-placeholder{
   }
   .fa-square-facebook{
 	color: rgb(57, 57, 172);
+	background-color:white;
   }
   #fb{
 	position: relative;
