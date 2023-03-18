@@ -3,6 +3,7 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .signup-form{
   max-width: 400px;
   min-height: 550px;
@@ -29,7 +30,7 @@ input{
 }
 input:focus{
   outline: 0;
-  border-color: #f9cb81;
+  border-color: lightgreen;
   
 }
 input:invalid{
@@ -57,7 +58,7 @@ input:invalid{
 
 .bg{
   background: rgb(252,205,128);
-  background: linear-gradient(90deg, rgba(252,205,128,1) 0%, rgba(209,122,142,1) 55%, rgba(220,159,174,1) 100%);   
+  background: linear-gradient(to right, grey, rgb(33,33,33));   
 }
 /* For, tiele */
 .form-title{
@@ -88,7 +89,7 @@ input:invalid{
 .already-registered a{
   text-decoration: none;
 }
-.cross-icon{
+.cross-icon {
   position: absolute;
   font-size: 28px;
   color:black;
