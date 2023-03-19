@@ -15,12 +15,12 @@ body{
 	height: 100vh;
   }
 
-#image{
+/* #image{
 	width: 50%;
 	z-index: ;
 	position: fixed;
 	top: 400px;
-}
+} */
   
   
 .navbar{
@@ -55,6 +55,7 @@ body{
 }
 .menu .list a:focus{
   text-decoration: underline;
+  border-spacing: 5px;
   
 }
 
