@@ -1,4 +1,3 @@
-
 let firebaseConfig = {
     apiKey: "AIzaSyBKGskchKMGNAxVW3FpWjEqF5FCtgU8hhY",
     authDomain: "blogging-website-cb998.firebaseapp.com",
@@ -10,3 +9,10 @@ let firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 let db = firebase.firestore();
+
+let auth = firebase.auth();
+
+const logoutUser = () => {
+    auth.signOut();
+    location.reload()
+}

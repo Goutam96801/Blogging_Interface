@@ -50,16 +50,21 @@ const uploadImage = (uploadFile, uploadType) => {
 
     publishBtn.addEventListener('click', () => {
         if (articleFeild.value.length && blogTitleField.value.length) {
-            // generating id
-            let letters = 'abcdefghijklmnopqrstuvwxyz';
-            let blogTitle = blogTitleField.value.split(" ").join("-");
-            let id = '';
-            for (let i = 0; i < 4; i++) {
-                id += letters[Math.floor(Math.random() * letters.length)];
-            }
 
-            // setting up docName
-            let docName = `${blogTitle}-${id}`;
+            let docName;
+            if (blogID[0] == 'editor') {
+                // generating id
+                let letters = 'abcdefghijklmnopqrstuvwxyz';
+                let blogTitle = blogTitleField.value.split(" ").join("-");
+                let id = '';
+                for (let i = 0; i < 4; i++) {
+                    id += letters[Math.floor(Math.random() * letters.length)];
+                }
+                 docName = `${blogTitle}-${id}`;
+            } else {
+                docName = decodeURI(blogID[0]);
+            }
+           
             let date = new Date(); // for published at info
 
             //access firstore with db variable;
@@ -67,7 +72,8 @@ const uploadImage = (uploadFile, uploadType) => {
                 title: blogTitleField.value,
                 article: articleFeild.value,
                 bannerImage: bannerPath,
-                publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+                publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`,
+                author:auth.currentUser.email.split("@")[0]
             })
                 .then(() => {
                     location.href = `/${docName}`;
@@ -77,3 +83,33 @@ const uploadImage = (uploadFile, uploadType) => {
                 })
         }
     })
+
+    //checking for user is logged in or not
+
+auth.onAuthStateChanged((user) => {
+    if (!user) {
+        location.replace("/admin");
+        }
+})
+    
+//checking for existing blog edits
+
+let blogID = location.pathname.split("/");
+blogID.shift(); //it will remove first elements which is empty from the array
+
+if (blogID[0] != "editor") {
+    //means we are in existing blog edit route
+    let docRef = db.collection("blogs").doc(decodeURI(blogID[0]));
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            let data = doc.data();
+            bannerPath = data.bannerImage;
+            banner.style.backgroundImage = `url(${bannerPath})`;
+            blogTitleField.value = data.title;
+            articleFeild.value = data.article;
+        }
+        else {
+            location.replace("/"); //home route
+        }
+    })
+}
