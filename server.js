@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fileupload = require('express-fileupload')
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 let initial_path = path.join(__dirname, "public");
 
