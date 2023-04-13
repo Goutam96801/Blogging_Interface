@@ -50,7 +50,7 @@ const createBlog = (blog) => {
         <p class="blog-overview">${data.article.substring(0, 200) + '...'}</p>
         <a href="/${blog.id}" class="btn dark">read</a>
         <a href="/${blog.id}" class="btn grey">edit</a>
-        <a href="#" onClick="deleteBlog('${blog.id})" class="btn danger">delete</a>
+        <a href="#" onClick="deleteBlog('${blog.id}')" class="btn danger">delete</a>
     </div>
     `;
 }

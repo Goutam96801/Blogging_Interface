@@ -18,4 +18,4 @@ const createBlog = (blog) => {
         <a href="/${blog.id}" class="btn dark">read</a>
     </div>
     `;
-}
+} 

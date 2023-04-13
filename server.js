@@ -2,14 +2,14 @@ const express = require('express');
 const path = require('path');
 const fileupload = require('express-fileupload')
 
-let initial_path = path.join(__dirname, "public");
+let initial_path = path.join(__dirname, "docs");
 
 const app = express();
 app.use(express.static(initial_path));
 app.use(fileupload());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(initial_path, "home.html"));
+    res.sendFile(path.join(initial_path, "index.html"));
 })
 
 app.get('/editor', (req, res) => {
@@ -27,9 +27,9 @@ app.post('/upload', (req, res) => {
 
     // create upload
     file.mv(path, (err, result) => {
-        if(err){
+        if (err) {
             throw err;
-        } else{
+        } else {
             // our image upload path
             res.json(`uploads/${imagename}`)
         }
