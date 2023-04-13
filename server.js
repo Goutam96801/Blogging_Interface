@@ -47,10 +47,6 @@ app.get("/:blog/editor", (Req, res) => {
     res.sendFile(path.join(initial_path, "editor.html"));
 })
 
-app.get("/admin", (req, res) => {
-    res.sendFile(path.join(initial_path, "dashboard.html"));
-})
-
 app.use((req, res) => {
     res.json("404");
 })
