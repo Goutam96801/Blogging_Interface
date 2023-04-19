@@ -3,18 +3,18 @@ const path = require('path');
 const fileupload = require('express-fileupload')
 const port = process.env.PORT || 3000;
 
-let initial_path = path.join(__dirname, "public");
+// let initial_path = path.join(__dirname, "public");
 
 const app = express();
-app.use(express.static(initial_path));
+app.use(express.static("public"));
 app.use(fileupload());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(initial_path, "index.html"));
+    res.sendFile(path.join(__dirname, "/public/index.html"));
 })
 
 app.get('/editor', (req, res) => {
-    res.sendFile(path.join(initial_path, "editor.html"));
+    res.sendFile(path.join(__dirname, "/public/editor.html"));
 })
 
 //upload link
@@ -33,25 +33,26 @@ app.post('/upload', (req, res) => {
         } else {
             // our image upload path
             res.json(`uploads/${imagename}`)
+
         }
     })
 })
 app.get("/admin", (req, res) => {
-    res.sendFile(path.join(initial_path, "dashboard.html"));
+    res.sendFile(path.join(__dirname, "/public/dashboard.html"));
 })
 
-app.get("/:blog", (req, res) => {
-    res.sendFile(path.join(initial_path, "blog.html"));
+app.get("/:blog", (req, res) => { 
+    res.sendFile(path.join(__dirname, "/public/blog.html"));
 })
 
 app.get("/:blog/editor", (Req, res) => {
-    res.sendFile(path.join(initial_path, "editor.html"));
+    res.sendFile(path.join(__dirname, "/public/editor.html"));
 })
 
 app.use((req, res) => {
     res.json("404");
 })
-
+module.exports = app;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 })
