@@ -36,6 +36,26 @@ const setupBlog = (data) => {
     addArticle(article, data.article);
 }
 
+// social share links
+
+const whatsappBtn = document.querySelector(".whatsapp-btn");
+const twitterBtn = document.querySelector(".twitter-btn");
+const facebookBtn = document.querySelector(".facebook-btn");
+const linkedinBtn = document.querySelector(".linkedin-btn");
+
+function init() {
+    let postUrl = encodeURI(document.location.href);
+    let postTitle = encodeURI("Hii everyone, please check this out: ");
+
+    whatsappBtn.setAttribute("href", `https://api.whatsapp.com/send?text=${postTitle} ${postUrl}`);
+    twitterBtn.setAttribute("href", `https://twitter.com/share?url=${postUrl}&text=${postTitle}`);
+    facebookBtn.setAttribute("href", `https://www.facebook.com/sharer.php?u=${postUrl}`);
+    linkedinBtn.setAttribute("href", `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`);
+
+}
+
+init();
+
 const addArticle = (ele, data) => {
     data = data.split("\n").filter(item => item.length);
     // console.log(data);

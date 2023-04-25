@@ -53,3 +53,33 @@
     background: rgba(0,0,0,0.5);
     display: none;
 }
+
+/* share button */
+
+.share-btn-container{
+    background: #fff;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 4px 0 8px rgba(0,0,0,0.3);
+    position: relative;
+    top: -15px;
+    left: 30%;
+    transform: translateY(-50%);
+    border-radius: 15px;
+}
+
+.share-btn-container a i {
+    font-size: 24px;
+}
+
+.share-btn-container a{
+    transition: 500ms;
+}
+
+.share-btn-container a:hover{
+    transform: scale(1.2);
+}

@@ -26,7 +26,7 @@ app.post('/upload', (req, res) => {
     let path = 'public/uploads/' + imagename;
 
     // create upload
-    file.mv(path, (err, result) => {
+    file.mv("path", (err, result) => {
         if (err) {
             throw err;
         } else {
