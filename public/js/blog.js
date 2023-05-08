@@ -1,6 +1,6 @@
 let blogId = decodeURI(location.pathname.split("/").pop());
-
 let docRef = db.collection("blogs").doc(blogId);
+const banner = document.querySelector('.banner');
 
 docRef.get().then((doc) => {
     if(doc.exists){
@@ -10,16 +10,28 @@ docRef.get().then((doc) => {
     }
 })
 
-const setupBlog = (data) => {
+const setupBlog = async (data) => {
     const banner = document.querySelector('.banner');
     const blogTitle = document.querySelector('.title');
     const titleTag = document.querySelector('title');
     const publish = document.querySelector('.published');
-    
+
+    const storage = firebase.storage();
+    const storageRef = storage.ref();
+
     banner.style.backgroundImage = `url(${data.bannerImage})`;
+    // const bannerImageRef = storageRef.child(data.bannerImage);
+
+    //   bannerImageRef.getDownloadURL()
+    //     .then((url) => {
+    //         banner.style.backgroundImage = `url('${url}')`; // Modified line
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error getting banner image URL:', error);
+    //     });
 
     titleTag.innerHTML += blogTitle.innerHTML = data.title;
-    publish.innerHTML += data.publishedAt;
+    publish.innerHTML = data.publishedAt;
     publish.innerHTML += `-- ${data.author}`;
 
     try {
@@ -32,9 +44,7 @@ const setupBlog = (data) => {
         //do nothing here
     }
 
-    const article = document.querySelector('.article');
-    addArticle(article, data.article);
-}
+};
 
 // social share links
 
@@ -47,7 +57,7 @@ function init() {
     let postUrl = encodeURI(document.location.href);
     let postTitle = encodeURI("Hii everyone, please check this out: ");
 
-    whatsappBtn.setAttribute("href", `https://api.whatsapp.com/send?text=${postTitle} ${postUrl}`);
+    whatsappBtn.setAttribute("href", `https://api.whatsapp.com/send?text=${postTitle}${postUrl}`);
     twitterBtn.setAttribute("href", `https://twitter.com/share?url=${postUrl}&text=${postTitle}`);
     facebookBtn.setAttribute("href", `https://www.facebook.com/sharer.php?u=${postUrl}`);
     linkedinBtn.setAttribute("href", `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`);
@@ -94,3 +104,23 @@ const addArticle = (ele, data) => {
         }
     })
 }
+
+async function getBlogData() {
+    try {
+        loadingScreen.style.display = 'block';
+        const doc = await docRef.get();
+        if (doc.exists) {
+            const data = doc.data();
+            setupBlog(data);
+            addArticle(document.querySelector('.article'), data.article);
+        } else {
+            location.replace("/");
+        }
+    } catch (error) {
+        console.error(error);
+    } finally {
+        loadingScreen.style.display = 'none';
+    }
+}
+
+getBlogData();

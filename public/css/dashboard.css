@@ -4,15 +4,26 @@
 
  .login{
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    width: 50%;
+    height:50vh;
+    border-radius: 30px;
+    box-shadow:10px 10px 5px grey ;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99;
     background: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+ }
+
+
+ .firebaseui-idp-button{
+   border-radius:20px;
+   margin: 8px;
+   padding: 8px;
  }
 
  /* Login Hover effect */
@@ -26,22 +37,71 @@
     transition: .5s;
  }
 
- .dashboard-heading{
-    color: rgba(0,0,0,0.5);
-    font-size: 60px;
+ /* Customize the label for the email input */
+ .firebaseui-label-email {
+    font-size: 1.2em;
+    color: #333;
+ }
+
+ /* Customize the input field for the email */
+ .firebaseui-input.firebaseui-id-email {
+    font-size: 1.2em;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+ }
+
+ /* Customize the label for the password input */
+ .firebaseui-label-password {
+    font-size: 1.2em;
+    color: #333;
+ }
+
+ /* Customize the input field for the password */
+ .firebaseui-input.firebaseui-id-password {
+    font-size: 1.2em;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+ }
+
+ /* Customize the "Sign in" button */
+ .firebaseui-id-submit {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
-    position: relative;
-    margin: 100px 0 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
  }
 
- .btn.grey{
-    background: #c5c5c5;
-    color: #000;
-    margin: 0 10px;
+ /* Customize the error message */
+ .firebaseui-error {
+    color: red;
+    margin-bottom: 20px;
  }
 
- .btn.danger{
-    background: #f00;
-    columns: #fff;
- }
+  .dashboard-heading {
+     color: rgba(0, 0, 0, 0.5);
+     font-size: 60px;
+     text-align: center;
+     position: relative;
+     margin: 100px 0 20px;
+  }
 
+  .btn.grey {
+     background: #c5c5c5;
+     color: #000;
+     margin: 0 10px;
+  }
+
+  .btn.danger {
+     background: #f00;
+     columns: #fff;
+  }

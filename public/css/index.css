@@ -35,6 +35,7 @@ body {
 .links-container {
     display: flex;
     list-style: none;
+    text-transform: capitalize;
 }
 
 .link {
@@ -46,28 +47,35 @@ body {
     position: relative;
 }
 
-.link::after {
+.link:hover:not(.active) {
+    opacity: 0.7;
+}
+
+.link.active::before,
+.seperator::before{
     content: '';
     position: absolute;
-    left: 0;
-    bottom: -6px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
-    height: 3px;
+    height: 5px;
+    border-radius: 50%;
     background: #fff;
-    border-radius: 5px;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform .5s;
+}
+.link.active::after,
+.seperator::after{
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    background: #fff;
 }
 
-.link:hover::after {
-    transform-origin: left;
-    transform: scaleX(1);
-}
-
-.link:focus::after {
-    transform: scaleX(1);
-    transform-origin: 0%;
+.seperator{
+    width: 25%;
+    margin: 20px auto;
+    position: relative;
 }
 
 .header {
@@ -249,4 +257,74 @@ body {
 
 .fa-twitter {
     color: rgb(72, 167, 204);
+}
+
+.loading-screen {
+    position: fixed;
+    top: calc(50% - 32px);
+    left: calc(50% - 32px);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    perspective: 800px;
+    z-index: 99;
+}
+
+.inner {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.inner.one {
+    left: 0%;
+    top: 0%;
+    animation: rotate-one 1s linear infinite;
+    border-bottom: 3px solid #1818aa;
+}
+
+.inner.two {
+    right: 0%;
+    top: 0%;
+    animation: rotate-two 1s linear infinite;
+    border-right: 3px solid #040433;
+}
+
+.inner.three {
+    right: 0%;
+    bottom: 0%;
+    animation: rotate-three 1s linear infinite;
+    border-top: 3px solid #2f2f51;
+}
+
+@keyframes rotate-one {
+    0% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+}
+
+@keyframes rotate-two {
+    0% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+    }
+}
+
+@keyframes rotate-three {
+    0% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
 }

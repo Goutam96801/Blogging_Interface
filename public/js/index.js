@@ -1,12 +1,30 @@
 const blogSection = document.querySelector('.blogs-section');
+const loadingScreen = document.querySelector('.loading-screen');
 
-db.collection("blogs").get().then((blogs) => {
-    blogs.forEach(blog => {
-        if(blog.id != decodeURI(location.pathname.split("/").pop())){
-            createBlog(blog);
-        }
-    })
-})
+const getBlogs = async () => {
+  loadingScreen.style.display = 'block'; // show the loading image
+  const blogs = await db.collection("blogs").get();
+  loadingScreen.style.display = 'none'; // hide the loading image
+  return blogs;
+};
+
+const displayBlogs = async () => {
+  const blogs = await getBlogs();
+  blogs.forEach(blog => {
+    if(blog.id != decodeURI(location.pathname.split("/").pop())){
+      createBlog(blog);
+    }
+  });
+};
+
+displayBlogs();
+// db.collection("blogs").get().then((blogs) => {
+//     blogs.forEach(blog => {
+//         if(blog.id != decodeURI(location.pathname.split("/").pop())){
+//             createBlog(blog);
+//         }
+//     })
+// })
 
 const createBlog = (blog) => {
     let data = blog.data();

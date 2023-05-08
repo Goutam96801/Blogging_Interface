@@ -8,10 +8,37 @@
 
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/editor.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
   </head>
   <body>
+    <!-- loading screen -->
+    <div class="loading-screen">
+      <div class="inner one"></div>
+      <div class="inner two"></div>
+      <div class="inner three"></div>
+    </div>
+
+    <nav class="navbar">
+      <img src="img/logo.png" class="logo" alt="logo.png" width="150px" />
+      <!-- toggler -->
+      <div class="toggle-btn">
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="links-container">
+        <li class="link-item">
+          <a href="/" class="link">home</a>
+        </li>
+        <li class="link-item">
+          <a href="/editor" class="link">editor</a>
+        </li>
+      </ul>
+    </nav>
+
     <div class="banner">
       <input type="file" accept="image/*" id="banner-upload" hidden />
+      >
+      <p class="upload-image-text">Please upload only "JPG" file</p>
       <label for="banner-upload" class="banner-upload-btn"
         ><img src="../img/upload.png" alt="upload banner"
       /></label>
@@ -38,8 +65,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-firestore.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
 
     <script src="../js/firebase.js"></script>
     <script src="../js/editor.js"></script>
+    <script src="../js/nav.js"></script>
   </body>
 </html>
