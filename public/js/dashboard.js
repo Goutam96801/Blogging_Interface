@@ -4,12 +4,14 @@ let login = document.querySelector('.login');
 const blogSection = document.querySelector('.blogs-section');
 const loadingScreen = document.querySelector('.loading-screen');
 
+
 // Update the UI based on the user's login status
 auth.onAuthStateChanged(async (user) => {
     try {
         if (user) {
             getUserWrittenBlogs();
             login.style.display = "none";
+
         } else {
             setupLoginButton();
         }
@@ -59,7 +61,7 @@ const getUserWrittenBlogs = async () => {
 const createBlog = (blog) => {
     let data = blog.data();
     blogSection.innerHTML += `
-    <div class="blog-card">
+    <div class="blog-card" style="padding:20px">
         <img src="${data.bannerImage}" class="blog-image" alt="">
         <h1 class="blog-title">${data.title.substring(0, 100) + '...'}</h1>
         <p class="blog-overview">${data.article.substring(0, 200) + '...'}</p>

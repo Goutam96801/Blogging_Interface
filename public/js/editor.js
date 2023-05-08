@@ -7,7 +7,7 @@ const storageRef = firebase.storage().ref();
 let bannerPath;
 
 const publishBtn = document.querySelector('.publish-btn');
-const uploadInput = document.querySelector('#image-upload'); 
+const uploadInput = document.querySelector('#image-upload');
 
 // Event listener for banner image upload
 document.querySelector('#banner-upload').addEventListener('change', () => {
@@ -27,11 +27,11 @@ const uploadImage = async (uploadFile, uploadType) => {
     if (file && file.type.includes("image")) {
         loadingScreen.style.display = 'block';
         const imageRef = storageRef.child(`${uploadType}/${file.name}`);
-        
+
         try {
             const snapshot = await imageRef.put(file);
             const downloadURL = await snapshot.ref.getDownloadURL();
-            
+
             if (uploadType === "image") {
                 addImage(downloadURL, file.name);
             } else {
@@ -41,7 +41,7 @@ const uploadImage = async (uploadFile, uploadType) => {
         } catch (error) {
             console.error('Error uploading image', error);
         }
-        
+
         loadingScreen.style.display = 'none'; // Hide loading screen
     } else {
         alert("Please upload an image file");
@@ -77,7 +77,7 @@ publishBtn.addEventListener('click', async () => {
         } catch (error) {
             console.error(error);
         }
-        
+
         loadingScreen.style.display = 'none'; // Hide loading screen
     }
 });
@@ -106,7 +106,7 @@ auth.onAuthStateChanged((user) => {
     }
 });
 
-    // Checking if the user is logged in or not
+// Checking if the user is logged in or not
 auth.onAuthStateChanged((user) => {
     if (!user) {
         location.replace("/admin");

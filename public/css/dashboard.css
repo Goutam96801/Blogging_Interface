@@ -1,13 +1,13 @@
- body{
+ body {
     background: #ececec;
  }
 
- .login{
+ .login {
     position: fixed;
     width: 50%;
-    height:50vh;
+    height: 50vh;
     border-radius: 30px;
-    box-shadow:10px 10px 5px grey ;
+    box-shadow: 10px 10px 5px grey;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,10 +20,10 @@
  }
 
 
- .firebaseui-idp-button{
-   border-radius:20px;
-   margin: 8px;
-   padding: 8px;
+ .firebaseui-idp-button {
+    border-radius: 20px;
+    margin: 8px;
+    padding: 8px;
  }
 
  /* Login Hover effect */
@@ -32,7 +32,7 @@
     background: #000 !important;
  }
 
- .firebaseui-idp-text:hover{
+ .firebaseui-idp-text:hover {
     color: #fff !important;
     transition: .5s;
  }
@@ -87,21 +87,21 @@
     margin-bottom: 20px;
  }
 
-  .dashboard-heading {
-     color: rgba(0, 0, 0, 0.5);
-     font-size: 60px;
-     text-align: center;
-     position: relative;
-     margin: 100px 0 20px;
-  }
+ .dashboard-heading {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 60px;
+    text-align: center;
+    position: relative;
+    margin: 100px 0 20px;
+ }
 
-  .btn.grey {
-     background: #c5c5c5;
-     color: #000;
-     margin: 0 10px;
-  }
+ .btn.grey {
+    background: #c5c5c5;
+    color: #000;
+    margin: 0 10px;
+ }
 
-  .btn.danger {
-     background: #f00;
-     columns: #fff;
-  }
+ .btn.danger {
+    background: #f00;
+    columns: #fff;
+ }

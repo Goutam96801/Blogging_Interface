@@ -3,9 +3,9 @@ let docRef = db.collection("blogs").doc(blogId);
 const banner = document.querySelector('.banner');
 
 docRef.get().then((doc) => {
-    if(doc.exists){
+    if (doc.exists) {
         setupBlog(doc.data());
-    } else{
+    } else {
         location.replace("/");
     }
 })
@@ -72,22 +72,22 @@ const addArticle = (ele, data) => {
 
     data.forEach(item => {
         // check for heading
-        if(item[0] == '#'){
+        if (item[0] == '#') {
             let hCount = 0;
             let i = 0;
-            while(item[i] == '#'){
+            while (item[i] == '#') {
                 hCount++;
                 i++;
             }
             let tag = `h${hCount}`;
             ele.innerHTML += `<${tag}>${item.slice(hCount, item.length)}</${tag}>`
-        } 
+        }
         //checking for image format
-        else if(item[0] == "!" && item[1] == "["){
+        else if (item[0] == "!" && item[1] == "[") {
             let seperator;
 
-            for(let i = 0; i <= item.length; i++){
-                if(item[i] == "]" && item[i + 1] == "(" && item[item.length - 1] == ")"){
+            for (let i = 0; i <= item.length; i++) {
+                if (item[i] == "]" && item[i + 1] == "(" && item[item.length - 1] == ")") {
                     seperator = i;
                 }
             }
@@ -99,7 +99,7 @@ const addArticle = (ele, data) => {
             `;
         }
 
-        else{
+        else {
             ele.innerHTML += `<p>${item}</p>`;
         }
     })
