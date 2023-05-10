@@ -11,24 +11,17 @@ const getBlogs = async () => {
 const displayBlogs = async () => {
   const blogs = await getBlogs();
   blogs.forEach(blog => {
-    if(blog.id != decodeURI(location.pathname.split("/").pop())){
+    if (blog.id != decodeURI(location.pathname.split("/").pop())) {
       createBlog(blog);
     }
   });
 };
 
 displayBlogs();
-// db.collection("blogs").get().then((blogs) => {
-//     blogs.forEach(blog => {
-//         if(blog.id != decodeURI(location.pathname.split("/").pop())){
-//             createBlog(blog);
-//         }
-//     })
-// })
 
 const createBlog = (blog) => {
-    let data = blog.data();
-    blogSection.innerHTML += `
+  let data = blog.data();
+  blogSection.innerHTML += `
     <div class="blog-card">
         <img src="${data.bannerImage}" class="blog-image" alt="">
         <h1 class="blog-title">${data.title.substring(0, 100) + '...'}</h1>
@@ -36,4 +29,30 @@ const createBlog = (blog) => {
         <a href="/${blog.id}" class="btn dark">read</a>
     </div>
     `;
-} 
+}
+
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+
+function handleSearch(event) {
+  event.preventDefault();
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  if (searchTerm !== '') {
+    clearBlogs(); // Clear existing blogs
+
+    const blogs = getBlogs().then(snapshot => {
+      snapshot.forEach(blog => {
+        const blogData = blog.data();
+        if (blogData.title.toLowerCase().includes(searchTerm) || blogData.article.toLowerCase().includes(searchTerm)) {
+          createBlog(blog);
+        }
+      });
+    });
+  }
+}
+
+function clearBlogs() {
+  blogSection.innerHTML = '';
+}
+
+searchForm.addEventListener('submit', handleSearch);

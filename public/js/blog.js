@@ -20,15 +20,6 @@ const setupBlog = async (data) => {
     const storageRef = storage.ref();
 
     banner.style.backgroundImage = `url(${data.bannerImage})`;
-    // const bannerImageRef = storageRef.child(data.bannerImage);
-
-    //   bannerImageRef.getDownloadURL()
-    //     .then((url) => {
-    //         banner.style.backgroundImage = `url('${url}')`; // Modified line
-    //     })
-    //     .catch((error) => {
-    //         console.error('Error getting banner image URL:', error);
-    //     });
 
     titleTag.innerHTML += blogTitle.innerHTML = data.title;
     publish.innerHTML = data.publishedAt;
@@ -124,3 +115,42 @@ async function getBlogData() {
 }
 
 getBlogData();
+
+// Add a click event listener to the report button
+const reportBlog = () => {
+    const blogId = decodeURI(location.pathname.split("/").pop());
+    const reportRef = db.collection("blogs").doc(blogId).collection("reports");
+
+    // Check if the user has already reported the blog
+    reportRef.doc(auth.currentUser.uid).get().then((doc) => {
+        if (doc.exists) {
+            alert("You have already reported this blog.");
+        } else {
+            // Report the blog
+            reportRef.doc(auth.currentUser.uid).set({
+                reportedAt: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                // Check if the blog has reached the report threshold (10 reports)
+                reportRef.get().then((snapshot) => {
+                    if (snapshot.size >= 10) {
+                        // Delete the blog
+                        db.collection("blogs").doc(blogId).delete().then(() => {
+                            alert("This blog has been deleted due to multiple reports.");
+                            location.replace("/");
+                        }).catch((error) => {
+                            console.error("Error deleting blog:", error);
+                        });
+                    } else {
+                        alert("Thank you for reporting this blog. Your report has been recorded.");
+                    }
+                }).catch((error) => {
+                    console.error("Error getting report count:", error);
+                });
+            }).catch((error) => {
+                console.error("Error reporting blog:", error);
+            });
+        }
+    }).catch((error) => {
+        console.error("Error checking report:", error);
+    });
+};

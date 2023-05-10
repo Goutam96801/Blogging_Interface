@@ -88,7 +88,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .content {
@@ -137,6 +136,26 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 80px;
+}
+
+.blog-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+#search-input {
+    padding: 8px;
+    border-radius: 10px;
+}
+
+#search-button {
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 5px;
 }
 
 .blog-image {

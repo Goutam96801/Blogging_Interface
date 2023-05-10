@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
 const fileupload = require('express-fileupload');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000
+
+dotenv.config();
 
 const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
@@ -56,6 +58,7 @@ app.get('/:blog/editor', (req, res) => {
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
