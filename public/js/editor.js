@@ -8,10 +8,10 @@ let bannerPath;
 
 const publishBtn = document.querySelector('.publish-btn');
 const uploadInput = document.querySelector('#image-upload');
-
+const bannerUpload = document.querySelector('#banner-upload');
 // Event listener for banner image upload
-document.querySelector('#banner-upload').addEventListener('change', () => {
-    uploadImage(document.querySelector('#banner-upload'), "banner");
+bannerUpload.addEventListener('change', () => {
+    uploadImage(bannerUpload, "banner");
 });
 
 // Event listener for content image upload
