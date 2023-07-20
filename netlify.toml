@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build" # Adjust this based on your project's build command
+  publish = "public" # Folder where the built files are located
+
+[build.environment]
+  # Set any required environment variables here, if applicable
+  # Example: FOO = "bar"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
