@@ -2,9 +2,6 @@ const express = require('express');
 const path = require('path');
 const fileupload = require('express-fileupload');
 const port = process.env.PORT || 3000
-const dotenv = require('dotenv');
-
-dotenv.config();
 
 const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
