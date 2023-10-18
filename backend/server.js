@@ -4,15 +4,15 @@ const fileupload = require('express-fileupload');
 const port = process.env.PORT || 3000
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(fileupload());
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 app.get('/editor', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'editor.html'));
+  res.sendFile(path.join(__dirname, '../public', 'editor.html'));
 });
 
 // Image upload endpoint
@@ -42,19 +42,19 @@ app.post('/upload', (req, res) => {
 
 
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+  res.sendFile(path.join(__dirname, '../public', 'dashboard.html'));
 });
 
 app.get('/:blog', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'blog.html'));
+  res.sendFile(path.join(__dirname, '../public', 'blog.html'));
 });
 
 app.get('/:blog/editor', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'editor.html'));
+  res.sendFile(path.join(__dirname, '../public', 'editor.html'));
 });
 
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+  res.status(404).sendFile(path.join(__dirname, '../public', '404.html'));
 });
 
 
